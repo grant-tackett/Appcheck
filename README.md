@@ -1,3 +1,7 @@
+# Confirm-OneLoginApplication
+This application is intended for internal use by OneLogin & One Identity employees.
+
+## Instructions
 Make sure the list of apps from the customer is a .TXT file and that all of the apps are in a column.
 
 Delete any pre existing Results.csv files if present.
