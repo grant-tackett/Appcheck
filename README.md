@@ -12,3 +12,4 @@ Confirm-OneLoginApps takes a list of application names and checks a local file t
 2. Double click the "Confirm-OneLoginApps" shortcut.
 3. Browse to your application list .txt file.
 4. After the process runs, your report will be saved to the /results directory and automatically opened.
+5. For a clean looking result, double click the top left corner of the file to select all cells, then double click the rows and the columns to size each appropriately.
