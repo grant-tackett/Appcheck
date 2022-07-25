@@ -3,12 +3,16 @@ Add-Type -AssemblyName System.Windows.Forms
 $FileBrowser = New-Object System.Windows.Forms.OpenFileDialog -Property @{ 
     InitialDirectory = "$PSScriptRoot\..\example"
     Filter = 'textfile (*.txt)|*.txt'
-    Title = 'Select files to open'
+    Title = 'Select your application list .txt file'
 }
-    $null = $FileBrowser.ShowDialog()
 
-$Customer_Apps = Get-Content $FileBrowser.FileName
+$FileBrowser.ShowDialog() | out-null
 
+Try {
+    $Customer_Apps = Get-Content $FileBrowser.FileName
+} Catch {
+    Throw "Could not get content from file $($FileBrowser.FileName)"
+}
 
 ##Import App Catalog
 Try {
@@ -17,26 +21,33 @@ Try {
     Throw "The OneLogin_Application_List.csv file was not found in the directory - $PSScriptRoot`r`n$_"
 }
 
-
 $AppOutput = ForEach ($App in $Customer_Apps)
     {
         $AppMatch = $App_Catalogue | Where-Object {$_.APP -match $App}
         
+        $AppData = [PSCustomObject][Ordered]@{
+            App = $App
+            Protocol = "N/A"
+            Catalogue = "N/A"
+        }
+
         ##If application is found in catalog it grabs the app and it's protocols   
         If ($AppMatch) {
-            $Appy = (@($App) | Out-String).Trim()
-            $Protocol = (@($AppMatch.Protocol) | Out-String).Trim()
-            $Catalog = (@($AppMatch.APP) | Out-String).Trim()
-               
-            New-Object PsObject -Property @{APP =$Appy;Protocol =$Protocol;Catalogue =$Catalog} 
+
+            $AppData = [PSCustomObject][Ordered]@{
+                App = (@($App) | Out-String).Trim()
+                Protocol = (@($AppMatch.Protocol) | Out-String).Trim()
+                Catalogue = (@($AppMatch.APP) | Out-String).Trim()
+            }  
         }
-        ##If no match, it adds App and N/A to Array
-        Else {
-            New-Object PsObject -Property @{APP =$App;Protocol ="N/A";Catalogue ="N/A"}
-        }
-   
+
+        $AppData
+        
     }
 
 ##Exports Array to CSV
 $FileDate = Get-Date -Format "yyyy-MM-ddTHH-mm-ss-ff"
-$AppOutput | Export-Csv -Path "$PSScriptRoot\..\out\$($FileDate)_Report.csv" -NoTypeInformation
+$File = "$PSScriptRoot\..\results\$($FileDate)_Report.csv"
+$AppOutput | Export-Csv -Path $File -NoTypeInformation
+
+Invoke-Item -Path $File

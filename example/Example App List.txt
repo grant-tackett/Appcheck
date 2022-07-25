@@ -1,5 +1,6 @@
-GSuite
+G Suite
 Donut
+Zoom
 Zoom Pro
 Expensify
 Lever
