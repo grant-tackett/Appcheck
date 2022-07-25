@@ -1,0 +1,81 @@
+"APP","Catalogue","Protocol"
+"GSuite","N/A","N/A"
+"Donut","N/A","N/A"
+"Zoom Pro","N/A","N/A"
+"Expensify","Expensify","SAML,Forms"
+"Lever","Clever
+Lever
+PageLever","SAML
+SAML
+Forms"
+"UserVoice","Uservoice","SAML,Forms"
+"Jira/Confluence","JIRA/Confluence (with Resolution SAML SingleSignOn)","SAML"
+"UKG (Ulti Pro)","N/A","N/A"
+"Slack","Slack","SAML,Provisioning,Forms"
+"Zendesk","Zendesk
+Zendesk (Self Hosted)","SAML,Provisioning,Forms
+Forms"
+"SalesForce","Netskope for Salesforce
+Salesforce
+Salesforce [FederationID]
+Salesforce Communities
+Salesforce Desk
+Salesforce Portal
+Salesforce Sandbox
+salesforceIQ","SAML
+SAML,Provisioning
+SAML
+SAML
+SAML
+SAML
+SAML
+Forms"
+"GitHub","CircleCI (GitHub)
+GitHub
+Github Enterprise
+Github Enterprise Dev
+GitHub w/Domain
+GitHub.com","Forms
+Provisioning
+SAML
+SAML
+Forms
+SAML"
+"1password","1Password","Provisioning"
+"BigQuery","N/A","N/A"
+"Miro","Miro","Provisioning"
+"Gong","N/A","N/A"
+"Log rocket","N/A","N/A"
+"CloudApp","CloudApp","SAML,Provisioning,Forms"
+"periscope data","Periscope Data","SAML"
+"Figma","Figma","Provisioning"
+"Tableau","Tableau (Auth)
+Tableau (Online)
+Tableau Hosted (forms based auth)
+Tableau Online (forms based auth)
+Tableau Online SSO
+Tableau Online SSO (SP)
+Tableau Server
+Tableau Server Demo
+Tableau Server(Signed Response)","Forms
+Provisioning
+Forms
+Forms
+SAML
+SAML
+SAML
+SAML
+SAML"
+"Zoho","Zoho
+Zoho CRM
+Zoho People
+Zoho Recruit
+Zoho Site24x7
+Zoho Site24x7 planview
+Zoho Wiki","SAML,Forms
+SAML
+Forms
+Forms
+SAML
+SAML
+Forms"
