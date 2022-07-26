@@ -27,8 +27,8 @@ $AppOutput = ForEach ($App in $Customer_Apps)
         
         $AppData = [PSCustomObject][Ordered]@{
             App = $App
-            Protocol = "N/A"
             Catalogue = "N/A"
+            Protocol = "N/A"
         }
 
         ##If application is found in catalog it grabs the app and it's protocols   
@@ -36,8 +36,8 @@ $AppOutput = ForEach ($App in $Customer_Apps)
 
             $AppData = [PSCustomObject][Ordered]@{
                 App = (@($App) | Out-String).Trim()
-                Protocol = (@($AppMatch.Protocol) | Out-String).Trim()
                 Catalogue = (@($AppMatch.APP) | Out-String).Trim()
+                Protocol = (@($AppMatch.Protocol) | Out-String).Trim()
             }  
         }
 
